@@ -3,6 +3,7 @@ module_WP_angular
 
 Module angular WP.
 Flux JSON émanant du site du musée virtuel
+
 Ex : http://www.museeprotestant.org/api/get_posts/?post_type=notice&rubriques=grandes-dates&custom_fields=none&count=-1&callback=JSON_CALLBACK&dev=1
 
 TO DO :
