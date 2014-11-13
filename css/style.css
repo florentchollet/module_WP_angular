@@ -1,0 +1,783 @@
+@import url(http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic);
+#monolite p {
+  margin: 0;
+  text-align: left;
+}
+#monolite .pattern {
+  font-size: 12px;
+  font-size: 0.75rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  display: block;
+  position: absolute;
+  z-index: 8;
+  height: 30px;
+  width: 100%;
+  bottom: -1px;
+  opacity: 0.4;
+  font-family: 'Noto Serif', serif;
+  font-style: italic;
+  line-height: 30px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAANklEQVQYV2NkwANm7r77nxGXPEgy3VWZEasCmCRIM4YCZEkMBeiSKAqwScIV4JIEK8AnCVIAALFrHzlrQklXAAAAAElFTkSuQmCC) repeat;
+}
+#monolite .pattern span {
+  background: #ff0000;
+  box-shadow: 20px 0 0 #ff0000, -10px 0 0 #ff0000;
+  -moz-box-shadow: 20px 0 0 #ff0000, -10px 0 0 #ff0000;
+  -webkit-box-shadow: 20px 0 0 #ff0000, -10px 0 0 #ff0000;
+  color: #edecec;
+  display: inline-block;
+  position: relative;
+  left: 10px;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#monolite {
+  background: #2d2e30;
+  font-family: 'Noto Serif', serif;
+  font-weight: 300;
+}
+#monolite *,
+#monolite *:focus {
+  outline: none;
+}
+#monolite .monolithe {
+  position: relative;
+  background: #2d2e30;
+}
+#monolite .monolithe .monolithe-wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+.grandes-dates {
+  min-height: 750px;
+}
+#monolite .loader {
+  font-size: 24px;
+  font-size: 1.5rem;
+  display: block;
+  color: grey;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+#monolite .menu {
+  zoom: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  height: 85px;
+  line-height: 85px;
+  border-top: solid 1px #424345;
+  border-bottom: solid 1px #424345;
+  margin-top: 20px;
+}
+#monolite .menu:before {
+  content: '';
+  display: block;
+}
+#monolite .menu:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#monolite .menu li {
+  font-size: 16px;
+  font-size: 1rem;
+  display: block;
+  float: left;
+  text-align: center;
+  text-transform: uppercase;
+  color: #919292;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  width: 192px;
+}
+#monolite .menu li:first-child {
+  text-align: left;
+}
+#monolite .menu li:last-child {
+  text-align: right;
+}
+#monolite .menu li .item-histoire,
+#monolite .menu li .item-history {
+  position: relative;
+  left: -15px;
+}
+#monolite .menu li .item-themes,
+#monolite .menu li .item-themes-en {
+  position: relative;
+  left: 10px;
+}
+#monolite .menu li .item-geschichte {
+  position: relative;
+  left: -45px;
+}
+#monolite .menu li .item-themen {
+  position: relative;
+  left: 25px;
+}
+#monolite .menu li span {
+  cursor: pointer;
+}
+#monolite .menu li.active span {
+  color: white !important;
+  cursor: default !important;
+}
+#monolite .menu li:hover .item-personnalites {
+  color: #990033;
+}
+#monolite .menu li:hover .item-themes {
+  color: #3399cc;
+}
+#monolite .menu li:hover .item-histoire {
+  color: #ff9900;
+}
+#monolite .menu li:hover .item-art-patrimoine {
+  color: #336699;
+}
+#monolite .menu li:hover .item-grandes-dates {
+  color: #ff9900;
+}
+#monolite .personnalites .filters {
+  zoom: 1;
+  font-size: 14px;
+  font-size: 0.875rem;
+  color: #edecec;
+  height: 30px;
+  line-height: 30px;
+  position: relative;
+  margin: 20px 0 40px 0;
+}
+#monolite .personnalites .filters:before {
+  content: '';
+  display: block;
+}
+#monolite .personnalites .filters:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#monolite .personnalites .filters .filter-alphabet {
+  zoom: 1;
+  float: left;
+  display: inline-block;
+  margin-right: 40px;
+}
+#monolite .personnalites .filters .filter-alphabet:before {
+  content: '';
+  display: block;
+}
+#monolite .personnalites .filters .filter-alphabet:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#monolite .personnalites .filters .filter-alphabet li {
+  float: left;
+  color: #919292 !important;
+  margin-right: 6px;
+}
+#monolite .personnalites .filters .filter-alphabet li:hover:nth-child(n+2),
+#monolite .personnalites .filters .filter-alphabet li.activeLetter {
+  cursor: pointer;
+  color: #edecec !important;
+}
+#monolite .personnalites .filters .filter-alphabet li:first-child {
+  font-style: italic;
+  opacity: 0.8;
+}
+#monolite .personnalites .filters .filter-alphabet li:last-child {
+  font-size: 12px;
+  font-size: 0.75rem;
+  opacity: 0;
+  margin-left: 10px;
+  color: #edecec !important;
+  text-decoration: underline;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+#monolite .personnalites .filters .filter-centuries {
+  float: left;
+  /*i{
+			position: relative;
+			left: -15px;
+		}*/
+}
+#monolite .personnalites .filters .filter-centuries span {
+  font-style: italic;
+  opacity: 0.8;
+}
+#monolite .personnalites .filters .filter-centuries select {
+  font-size: 14px;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  background: #2d2e30;
+  color: #edecec;
+}
+#monolite .personnalites .filters .filter-search {
+  display: inline-block;
+  position: absolute;
+  top: -2px;
+  right: 0;
+}
+#monolite .personnalites .filters .filter-search input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 30px;
+  border: none;
+  background: #363738;
+  padding-left: 10px;
+  width: 150px;
+  font-style: italic;
+  color: #e2e2e2;
+}
+#monolite cursor {
+  display: block;
+  margin: 40px 0;
+}
+#monolite .legend {
+  display: block;
+  position: relative;
+  height: 16px;
+  width: 960px;
+  margin: 20px auto 0 auto;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-style: italic;
+  color: #dddddd;
+}
+#monolite .legend span {
+  position: absolute;
+  min-width: 60px;
+  text-align: center;
+}
+#monolite .legend span sup {
+  font-size: 9px;
+  font-size: 0.5625rem;
+  position: relative;
+  top: -4px;
+  opacity: 0.8;
+}
+#monolite .ui-slider-range {
+  background: #ff9900 !important;
+}
+#monolite .ui-slider-handle {
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+  top: -7px !important;
+  height: 27px !important;
+  width: 27px !important;
+  cursor: pointer !important;
+  border: none !important;
+  background: url('../img/cursor.png') !important;
+}
+#monolite .ui-slider-horizontal {
+  height: 7px !important;
+}
+#monolite .ui-widget-content {
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+  border: none !important;
+  border-bottom: 1px solid #4c4d4f !important;
+  background: #222223 !important;
+}
+#monolite .themes .filters,
+#monolite .artspatrimoine .filters {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  border-right: solid 1px #424345;
+  width: 310px;
+  padding-right: 10px;
+}
+#monolite .menu-themes {
+  font-size: 16px;
+  font-size: 1rem;
+  font-style: italic;
+  color: #919292;
+  text-align: left;
+}
+#monolite .menu-themes > li {
+  position: relative;
+  margin-bottom: 20px;
+  padding-right: 20px;
+}
+#monolite .menu-themes > li > a {
+  display: inline-block;
+  cursor: pointer;
+  width: 100%;
+  color: #919292;
+  text-decoration: none;
+}
+#monolite .menu-themes > li:hover > a,
+#monolite .menu-themes > li.active > a {
+  color: #edecec;
+}
+#monolite .menu-themes > li.active a:after {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+#monolite .menu-themes > li.parentsThemes > a:after {
+  font-size: 24px;
+  font-size: 1.5rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  position: absolute;
+  top: -5px;
+  right: 0;
+  font-family: FontAwesome;
+  font-style: normal;
+  color: #424345;
+  content: "\f107";
+}
+#monolite .menu-themes .submenu {
+  font-size: 14px;
+  font-size: 0.875rem;
+  margin-bottom: 30px;
+}
+#monolite .menu-themes .submenu li {
+  cursor: pointer;
+  padding: 5px 0 5px 10px;
+  position: relative;
+  margin-bottom: 5px;
+}
+#monolite .menu-themes .submenu li.active a {
+  color: #edecec;
+}
+#monolite .menu-themes .submenu li a {
+  color: #919292;
+  text-decoration: none;
+}
+#monolite .menu-themes .submenu li a:hover {
+  color: #edecec;
+}
+#monolite .menu-themes .submenu li a:hover:before {
+  color: #3399cc;
+}
+#monolite .menu-themes .submenu li:before {
+  font-size: 10px;
+  font-size: 0.625rem;
+  position: relative;
+  top: -2px;
+  font-family: FontAwesome;
+  font-style: normal;
+  content: "\f111";
+  margin-right: 10px;
+  color: #3399cc;
+}
+#monolite .menu-themes .submenu li:first-child {
+  margin-top: 15px;
+}
+.vco-slider .slider-item .content .content-container .text {
+  width: 50% !important;
+}
+.vco-storyjs,
+.storyjs-embed,
+.vco-storyjs div.vco-explainer,
+.vco-navigation .timenav-background .timenav-interval-background {
+  background-color: transparent !important;
+  border: none;
+}
+.vco-timeline .vco-navigation .timenav-background {
+  background-color: #28282a !important;
+}
+.vco-timeline .vco-navigation {
+  border-color: #28282b !important;
+}
+/*.vco-timeline .vco-navigation .vco-toolbar{
+	display:none !important;
+}*/
+.vco-slider .slider-item .content .content-container {
+  margin: auto;
+  max-width: 1100px;
+}
+.vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-image img {
+  border: none !important;
+}
+.vco-slider .slider-item .content .content-container .media .media-wrapper .media-container {
+  border: 9px solid black !important;
+}
+.vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-shadow:before,
+.vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-shadow:after {
+  -webkit-box-shadow: none 0 5px #000000 !important;
+  -moz-box-shadow: none 0 5px #000000 !important;
+  box-shadow: none 0 5px #000000 !important;
+}
+.vco-notouch .vco-slider .nav-previous:hover,
+.vco-notouch .vco-slider .nav-next:hover {
+  color: white !important;
+  cursor: pointer;
+}
+.vco-storyjs .vco-feature h3 {
+  color: white !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: 300;
+}
+.vco-timeline .vco-navigation .timenav .time .time-interval-major div {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAMCAMAAACdvocfAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRFzMzM////040VdgAAAAJ0Uk5T/wDltzBKAAAAEklEQVR42mJgYAQCBopJgAADAAbwADHy2qHzAAAAAElFTkSuQmCC) !important;
+  padding-top: 6px !important;
+  position: absolute;
+  height: 3px !important;
+  font-weight: normal !important;
+  font-size: 10px !important;
+  color: #666 !important;
+  margin-top: 0 !important;
+}
+.vco-timeline .content-container .container p {
+  color: #969696 !important;
+}
+.vco-timeline .vco-navigation .timenav .content .marker .dot {
+  background: #ff9900 !important;
+}
+.vco-timeline .vco-navigation .timenav .content .marker.active .dot {
+  background: #08c !important;
+}
+.vco-storyjs a {
+  color: #ff9900 !important;
+}
+.vco-timeline .vco-navigation .timenav .content .marker.active .flag .flag-content h3,
+.vco-timeline .vco-navigation .timenav .content .marker.active .flag-small .flag-content h3 {
+  color: #ff9900 !important;
+}
+.vco-timeline .vco-navigation .timenav-background .timenav-line {
+  background-color: #ff9900 !important;
+}
+.vco-timeline .vco-navigation .timenav .content .marker.active .line {
+  background: #ff9900 !important;
+}
+.vco-timeline .vco-navigation .timenav .content .marker.active .dot {
+  background: #ff9900 !important;
+}
+.vco-timeline .vco-navigation .timenav .content .marker.active .flag .flag-content h3.nonprot,
+.vco-timeline .vco-navigation .timenav .content .marker.active .flag-small .flag-content h3.nonprot {
+  color: lightgrey !important;
+}
+#monolite .templates {
+  display: none;
+}
+#monolite .liste {
+  zoom: 1;
+}
+#monolite .liste:before {
+  content: '';
+  display: block;
+}
+#monolite .liste:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#monolite .liste li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  zoom: 1;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  float: left;
+  margin-top: 40px;
+  margin-left: 50px;
+  opacity: 0.5;
+}
+#monolite .liste li:before {
+  content: '';
+  display: block;
+}
+#monolite .liste li:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#monolite .liste li:hover {
+  opacity: 1;
+}
+#monolite .liste li:hover .pattern {
+  bottom: 2px;
+  opacity: 1;
+}
+#monolite .liste li .block {
+  position: relative;
+  background: #4d4d4d;
+  background-image: url('../img/placeimgholder.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#monolite .liste li .block:before {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  top: -10px;
+  left: -14px;
+  content: " ";
+}
+#monolite .liste li .block .img {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#monolite .liste li .block div {
+  position: absolute;
+  z-index: 6;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+}
+#monolite .notice-readmore {
+  font-size: 14px;
+  font-size: 0.875rem;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  display: inline-block;
+  opacity: 0.8;
+  color: white;
+  background: red;
+  text-decoration: none;
+  font-style: italic;
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+#monolite .notice-readmore:hover {
+  opacity: 1;
+}
+#monolite .histoire .liste li {
+  margin-left: 54px;
+}
+#monolite .histoire .liste li:nth-child(-n+3) {
+  margin-top: 0;
+}
+#monolite .histoire .liste li:nth-child(3n+1) {
+  margin-left: 0;
+}
+#monolite .personnalites .liste li {
+  margin-left: 53px;
+}
+#monolite .personnalites .liste li:nth-child(-n+4) {
+  margin-top: 0;
+}
+#monolite .personnalites .liste li:nth-child(4n+1) {
+  margin-left: 0;
+}
+#monolite .themes .liste li:nth-child(-n+2),
+#monolite .artspatrimoine .liste li:nth-child(-n+2) {
+  margin-top: 0;
+}
+#monolite .themes .liste li:nth-child(2n+1),
+#monolite .artspatrimoine .liste li:nth-child(2n+1) {
+  margin-left: 0;
+}
+#monolite #my-timeline {
+  display: block;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 100px;
+}
+#monolite #my-timeline .notice-readmore {
+  background: #ff9900;
+}
+#monolite #my-timeline .nav-next,
+#monolite #my-timeline .nav-previous {
+  display: none !important;
+}
+#monolite .histoire .block {
+  height: 175px;
+  width: 284px;
+}
+#monolite .histoire .block:before {
+  height: 200px;
+  width: 308px;
+  background: url("../img/cadre-histoire.png");
+}
+#monolite .histoire .block .pattern {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAJ0lEQVQIW2NkQAP/ZzL8Z0QWAwukMzDCBWECIEVgQWQBsCC6AEgQAO2EDp16SerUAAAAAElFTkSuQmCC) repeat;
+}
+#monolite .histoire .block .pattern span {
+  background: #ff9900;
+  box-shadow: 20px 0 0 #ff9900, -10px 0 0 #ff9900;
+  -moz-box-shadow: 20px 0 0 #ff9900, -10px 0 0 #ff9900;
+  -webkit-box-shadow: 20px 0 0 #ff9900, -10px 0 0 #ff9900;
+  color: #edecec;
+}
+#monolite .histoire .pagination li:hover,
+#monolite .histoire .pagination li.active {
+  background: #ff9900;
+}
+#monolite .personnalites .block {
+  height: 290px;
+  width: 200px;
+}
+#monolite .personnalites .block:before {
+  height: 306px;
+  width: 220px;
+  background: url("../img/cadre-personnalites.png") 4px 3px no-repeat;
+}
+#monolite .personnalites .block .pattern {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAMzGYz/MyKLgQTSGc4ywgVhAiBFYEFkAbAgugBIEACW1w3Rlyhe1gAAAABJRU5ErkJggg==) repeat;
+}
+#monolite .personnalites .block .pattern span {
+  background: #990033;
+  box-shadow: 20px 0 0 #990033, -10px 0 0 #990033;
+  -moz-box-shadow: 20px 0 0 #990033, -10px 0 0 #990033;
+  -webkit-box-shadow: 20px 0 0 #990033, -10px 0 0 #990033;
+  color: #edecec;
+  max-width: 180px;
+}
+#monolite .personnalites .pagination li:hover,
+#monolite .personnalites .pagination li.active {
+  background: #990033;
+}
+#monolite .themes,
+#monolite .artspatrimoine {
+  zoom: 1;
+  margin-top: 40px;
+}
+#monolite .themes:before,
+#monolite .artspatrimoine:before {
+  content: '';
+  display: block;
+}
+#monolite .themes:after,
+#monolite .artspatrimoine:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#monolite .themes .liste,
+#monolite .artspatrimoine .liste {
+  float: right;
+  width: 620px;
+  margin-top: 6px;
+}
+#monolite .themes .liste .block,
+#monolite .artspatrimoine .liste .block {
+  width: 284px;
+  height: 175px;
+}
+#monolite .themes .liste .block:before,
+#monolite .artspatrimoine .liste .block:before {
+  height: 200px;
+  width: 308px;
+  background: url("../img/cadre-histoire.png");
+}
+#monolite .themes .liste .block .pattern,
+#monolite .artspatrimoine .liste .block .pattern {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAPGM8/8Z0QWAwmcTTdhhAvCBECKwILIAmBBdAGQIACJ+xKdyHeBBgAAAABJRU5ErkJggg==) repeat;
+}
+#monolite .themes .liste .block .pattern span,
+#monolite .artspatrimoine .liste .block .pattern span {
+  background: #3399cc;
+  box-shadow: 20px 0 0 #3399cc, -10px 0 0 #3399cc;
+  -moz-box-shadow: 20px 0 0 #3399cc, -10px 0 0 #3399cc;
+  -webkit-box-shadow: 20px 0 0 #3399cc, -10px 0 0 #3399cc;
+  color: #edecec;
+}
+#monolite .themes .pagination,
+#monolite .artspatrimoine .pagination {
+  width: 620px;
+  float: right;
+}
+#monolite .themes .pagination li:hover,
+#monolite .artspatrimoine .pagination li:hover,
+#monolite .themes .pagination li.active,
+#monolite .artspatrimoine .pagination li.active {
+  background: #3399cc;
+}
+#monolite .artspatrimoine .liste .block .pattern {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAPGaTP/MyKLgQTOzkpnhAvCBECKwILIAmBBdAGQIABhJBI3aiFvGQAAAABJRU5ErkJggg==) repeat !important;
+}
+#monolite .artspatrimoine .liste .block .pattern span {
+  background: #336699 !important;
+  box-shadow: 20px 0 0 #336699, -10px 0 0 #336699 !important;
+  -moz-box-shadow: 20px 0 0 #336699, -10px 0 0 #336699 !important;
+  -webkit-box-shadow: 20px 0 0 #336699, -10px 0 0 #336699 !important;
+  color: #edecec !important;
+}
+#monolite .artspatrimoine .pagination li:hover,
+#monolite .artspatrimoine .pagination li.active {
+  background: #336699 !important;
+}
+#monolite .pagination {
+  position: relative;
+  text-align: center;
+  clear: both;
+  height: 40px;
+  line-height: 20px;
+  margin: 40px 0 0 0;
+}
+#monolite .pagination li {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  background: #5c6161;
+}
+#monolite .pagination li:hover,
+#monolite .pagination li.active {
+  background-color: transparent;
+  background: #e45654;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e45654), color-stop(100%, #d53431));
+  background: -webkit-linear-gradient(top, #e45654 0%, #d53431 100%);
+  background: -moz-linear-gradient(top, #e45654 0%, #d53431 100%);
+  background: -ms-linear-gradient(top, #e45654 0%, #d53431 100%);
+  background: -o-linear-gradient(top, #e45654 0%, #d53431 100%);
+  background: linear-gradient(top, #e45654 0%, #d53431 100%);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e45654', endColorstr='#d53431', GradientType='0');
+}
+#monolite .pagination i[class*="fa-angle"] {
+  position: relative;
+  top: 4px;
+}
+#monolite .pagination .fa-angle-left {
+  margin-right: 20px;
+}
+#monolite .pagination .fa-angle-right {
+  margin-left: 20px;
+}
+#monolite .lang-de .legend span {
+  min-width: 120px;
+}
+#monolite .lang-de .personnalites select {
+  width: 60px;
+}
+#monolite .lang-en .legend span {
+  min-width: 120px;
+}
+#monolite .lang-fr .legend span:after {
+  content: 'ème';
+  font-size: 9px;
+  position: relative;
+  top: -5px;
+}

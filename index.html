@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Monolithe Musée virtuel Protestant</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <link type='text/css' rel='stylesheet' href='css/reset.css' />
+    <link type='text/css' rel='stylesheet' href='css/style.css' />
+    <link type='text/css' rel='stylesheet' href='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css' />
+    <link type='text/css' rel='stylesheet' href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' />
+	<link rel="stylesheet" type="text/css" href="http://cdn.knightlab.com/libs/timeline/latest/css/timeline.css">
+
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-sanitize.min.js"></script>
+
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/directives.js"></script>
+    <script type="text/javascript" src="js/filters.js"></script>
+
+	<script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/timeline-min.js"></script>
+	<script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
+	
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	
+	<style>
+	body{
+		background:#2d2e30;
+	}
+	</style>
+
+</head>
+<body ng-app="mnlt">
+    <div id="monolite">   
+		<section class="monolithe" ng-controller="noticesCtrl">
+			<div class="monolithe-wrapper">
+				
+				<!-- Templates selector -->
+				<ul class="menu">
+					<li ng-repeat="item in templates[langN] track by $index" ng-click="getTemplate($index, currentLang)" ng-class="{active: isActive(item)}">
+						<span class="item-{{item.slug}}">{{item.name}}</span>
+					</li>
+				</ul>    
+				
+				<!-- Loader -->
+				<div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+				
+				<!-- Templates include -->
+				<div ng-include="template.url" class="templates"></div>                                           
+		
+			</div>
+		</section>
+    </div>
+</body>
+</html>

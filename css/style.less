@@ -1,0 +1,774 @@
+// IMPORTS
+// ---------------------------------------------
+
+@import "function.less";
+@import url(http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic);
+
+
+// VARIABLES
+// ---------------------------------------------
+@bg: #2d2e30;
+@bg-histoire: #ff9900;
+@bg-personnalites: #990033;
+@bg-themes: #3399cc;
+@bg-grandesdates: #ff9900;
+@bg-artspatrimoine: #336699;
+
+@border: #424345;
+
+@ft-light: #edecec;
+@ft-inact: #919292;
+
+@pg-start: #e45654;
+@pg-end: #d53431;
+@pg-base: #5c6161;
+
+
+// FUNCTIONS
+// ---------------------------------------------
+
+.colorpattern(@color: red, @left: 20px, @right: -10px) {
+	background: @color;
+	box-shadow: @left 0 0 @color, @right 0 0 @color;
+	-moz-box-shadow: @left 0 0 @color, @right 0 0 @color;
+	-webkit-box-shadow: @left 0 0 @color, @right 0 0 @color;
+	color: @ft-light;
+}
+
+#monolite p{
+	margin:0;
+	text-align:left;
+}
+
+#monolite .pattern {
+	//.font-size(14);
+	.font-size(12);
+	.transition(all 0.3s ease-in-out);
+	display: block;
+	position: absolute;
+	z-index: 8;	
+	height: 30px;
+	width: 100%;
+	//bottom: -30px;
+	bottom: -1px;
+	opacity: 0.4;
+	font-family: 'Noto Serif', serif;
+	font-style: italic;	
+	line-height: 30px;						
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAANklEQVQYV2NkwANm7r77nxGXPEgy3VWZEasCmCRIM4YCZEkMBeiSKAqwScIV4JIEK8AnCVIAALFrHzlrQklXAAAAAElFTkSuQmCC) repeat;
+	span {
+		.colorpattern();
+		display: inline-block;
+		position: relative;
+		left: 10px;
+		max-width: 220px;
+		white-space: nowrap;
+  		overflow: hidden;
+  		text-overflow: ellipsis;
+	}
+}
+
+
+// BASES
+// ---------------------------------------------
+
+#monolite {
+	background: @bg;
+	font-family: 'Noto Serif', serif;
+	font-weight: 300;
+}
+
+#monolite * ,#monolite *:focus {
+	outline: none;
+}
+
+#monolite .monolithe {
+	position: relative;
+	background: @bg;
+	.monolithe-wrapper {
+		width: 960px;
+		margin: 0 auto;
+	}		
+}
+
+//Grandes dates
+.grandes-dates{
+	min-height:750px;
+}
+
+// LOADER
+// ---------------------------------------------
+
+#monolite .loader {
+	//.border-radius(2);
+	.font-size(24);
+	//.box-shadow();
+	display: block;
+	//background: @ft-light;
+	color: grey;
+	text-align: center;	
+	padding: 10px 0;
+	margin-top: 20px;
+}
+
+
+// MENU
+// ---------------------------------------------
+
+#monolite .menu {
+	.clearfix();
+	.box-sizing();
+	display: block;
+	height: 85px;
+	line-height: 85px;
+	border-top: solid 1px @border;
+	border-bottom: solid 1px @border;	
+	margin-top: 20px;
+	li{	
+		//alignement du premier item à gauche
+		&:first-child{
+			text-align:left;	
+		}
+		//alignement du dernier item à droite
+		&:last-child{
+			text-align:right;	
+		}
+		//ajustements
+		.item-histoire, .item-history{
+			position:relative;
+			left:-15px;
+		}
+		.item-themes, .item-themes-en{
+			position:relative;
+			left:10px;
+		}
+		.item-geschichte{
+			position:relative;
+			left:-45px;
+		}
+		.item-themen{
+			position:relative;
+			left:25px;
+		}
+		.font-size(16);
+		display: block;
+		float: left;
+		text-align: center;
+		text-transform: uppercase;
+		color: @ft-inact;		
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   		font-weight: 300;
+   		width: 192px;
+   		span {
+   			cursor: pointer;
+   		}	
+	}
+	li.active span{
+		color:white !important;
+		cursor: default !important;
+	}	
+}
+
+//couleur active
+#monolite .menu li:hover .item-personnalites{
+	color:@bg-personnalites;
+}
+#monolite .menu li:hover .item-themes{
+	color:@bg-themes;
+}
+#monolite .menu li:hover .item-histoire{
+	color:@bg-histoire;
+}
+#monolite .menu li:hover .item-art-patrimoine{
+	color:@bg-artspatrimoine;
+}
+#monolite .menu li:hover .item-grandes-dates{
+	color:@bg-histoire;
+}
+
+
+// FILTERS PERSONNALITES
+// ---------------------------------------------
+#monolite .personnalites .filters {
+	.clearfix();
+	.font-size(14);
+	color: @ft-light;
+	height: 30px;
+	line-height: 30px;
+	position: relative;
+	margin: 20px 0 40px 0;
+	.filter-alphabet {
+		.clearfix();
+		float: left;
+		display: inline-block;
+		margin-right: 40px;
+		li {			
+			float: left;
+			color: @ft-inact !important;
+			margin-right: 6px;
+			&:hover:nth-child(n+2), &.activeLetter {				
+				cursor: pointer;
+				color: @ft-light !important;
+			}
+			&:first-child {
+				font-style: italic;
+				opacity: 0.8;
+			}
+			&:last-child {
+				.font-size(12);
+				opacity: 0;
+				margin-left: 10px;
+				color: @ft-light !important;
+				text-decoration: underline;				
+				font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+			}
+		}
+	}
+	.filter-centuries {
+		float: left;
+		span {
+			font-style: italic;
+			opacity: 0.8;
+		}
+		select {
+			.font-size(14);		
+		    border: none;
+		    cursor: pointer;
+			background: @bg;
+			color: @ft-light;
+		}
+		/*i{
+			position: relative;
+			left: -15px;
+		}*/
+	}
+	.filter-search {
+		display: inline-block;
+		position: absolute;
+		top: -2px;
+		right: 0;		
+		input {
+			.box-sizing();
+			height: 30px;
+			border: none;
+			background: #363738;
+			//margin-right: 10px;
+			padding-left: 10px;
+			width: 150px;
+			font-style: italic;
+			color: #e2e2e2;
+		}
+	}
+}
+
+
+// FILTER HISTOIRE
+// ---------------------------------------------
+
+// Cursors value
+#monolite cursor {
+	display: block;
+	margin: 40px 0;
+}
+#monolite .legend {
+	display: block;
+	position: relative;
+	height: 16px;
+	width: 960px;
+	margin: 20px auto 0 auto;
+	.font-size(14);
+	font-style: italic;
+	color: #dddddd;
+	span {		
+		position: absolute;
+		min-width: 60px;
+		text-align: center;
+		sup {
+			.font-size(9);
+			position: relative;
+			top: -4px;
+			opacity: 0.8;
+		}
+	}
+}
+
+// Slider
+#monolite .ui-slider-range {
+	background: @bg-histoire !important; 
+}
+#monolite .ui-slider-handle { 
+	.border-radius(0) !important;
+	top: -7px !important;
+	height: 27px !important;
+	width: 27px !important;
+	cursor: pointer !important;
+	border: none !important;
+	background: url('../img/cursor.png') !important;
+}
+#monolite .ui-slider-horizontal {
+	height: 7px !important;
+}
+#monolite .ui-widget-content {
+	.border-radius(0) !important;
+	border: none !important;
+	border-bottom: 1px solid #4c4d4f !important;
+	background: #222223 !important;
+}
+
+
+// FILTER THEMES
+// ---------------------------------------------
+
+#monolite .themes .filters, #monolite .artspatrimoine .filters {
+	.box-sizing();
+	float: left;
+	border-right: solid 1px @border;
+	width: 310px;
+	//height: 835px;
+	padding-right: 10px;	
+}
+
+#monolite .menu-themes {
+	.font-size(16);
+	font-style: italic;
+	color: @ft-inact;
+	text-align:left;
+	& > li {
+		position: relative;
+		margin-bottom: 20px;
+		padding-right: 20px;
+		& > a {
+			display: inline-block;
+			cursor: pointer;
+			width: 100%;
+			color: @ft-inact;
+			text-decoration:none;			
+		}
+		&:hover > a, &.active > a {			
+			color: @ft-light;		
+		}
+		&.active a:after {			
+			.rotate(180);	
+		}
+		&.parentsThemes>a:after {
+			.font-size(24);	
+			.transition(all 0.3s ease-in-out);	
+			display: inline-block;
+			position: absolute;
+			top: -5px;
+			right: 0;
+			font-family: FontAwesome;
+			font-style: normal;			
+			color: @border;
+			content: "\f107";
+		}
+	}
+	.submenu {
+		.font-size(14);
+		margin-bottom: 30px;	
+		li{
+			&.active a{
+				color: @ft-light;
+			}
+			a{
+				color: @ft-inact;
+				text-decoration:none;			
+				&:hover{
+					color: @ft-light; 
+				}
+				&:hover:before{
+					color: @bg-themes;
+				}
+			}			
+			cursor: pointer;			
+			padding: 5px 0 5px 10px;
+			position: relative;
+			margin-bottom: 5px;
+			
+			&:before {
+				.font-size(10);				
+				position: relative;
+				top: -2px;
+				font-family: FontAwesome;
+				font-style: normal;	
+				content: "\f111";
+				margin-right: 10px;
+				color: @bg-themes;
+			}
+			&:first-child {
+				margin-top: 15px;
+			}
+		}
+	}	
+}
+
+
+// FILTER TIMELINE
+// ---------------------------------------------
+
+.vco-slider .slider-item .content .content-container .text{
+	width:50% !important;
+}
+
+.vco-storyjs, .storyjs-embed, .vco-storyjs div.vco-explainer, .vco-navigation .timenav-background .timenav-interval-background {
+	background-color: transparent !important;
+	border: none;
+}
+.vco-timeline .vco-navigation .timenav-background {
+	background-color: #28282a !important;
+}
+.vco-timeline .vco-navigation{
+	border-color: #28282b !important;
+}
+
+/*.vco-timeline .vco-navigation .vco-toolbar{
+	display:none !important;
+}*/
+.vco-slider .slider-item .content .content-container {
+	margin: auto;
+	max-width: 1100px;
+}
+
+.vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-image img {
+	border: none !important;
+}
+.vco-slider .slider-item .content .content-container .media .media-wrapper .media-container {
+	border: 9px solid black !important;
+}
+.vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-shadow:before, .vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-shadow:after {
+	.box-shadow(none) !important;
+}
+.vco-notouch .vco-slider .nav-previous:hover, .vco-notouch .vco-slider .nav-next:hover {
+	color: white !important;
+	cursor: pointer;
+}
+.vco-storyjs .vco-feature h3 {
+	color: white !important;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+	font-weight: 300;
+}
+.vco-timeline .vco-navigation .timenav .time .time-interval-major div {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAMCAMAAACdvocfAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRFzMzM////040VdgAAAAJ0Uk5T/wDltzBKAAAAEklEQVR42mJgYAQCBopJgAADAAbwADHy2qHzAAAAAElFTkSuQmCC)!important;
+	padding-top: 6px !important;
+	position: absolute;
+	height: 3px !important;
+	font-weight: normal !important;
+	font-size: 10px !important;
+	color: #666 !important;
+	margin-top: 0 !important;
+}
+.vco-timeline .content-container .container p {
+	color: #969696 !important;
+}
+.vco-timeline .vco-navigation .timenav .content .marker .dot{
+	background: @bg-grandesdates !important;
+}
+.vco-timeline .vco-navigation .timenav .content .marker.active .dot{
+	background :#08c !important;
+}
+.vco-storyjs a{
+	color: @bg-grandesdates !important;
+}
+.vco-timeline .vco-navigation .timenav .content .marker.active .flag .flag-content h3, .vco-timeline .vco-navigation .timenav .content .marker.active .flag-small .flag-content h3{
+	color: @bg-grandesdates !important;
+}
+.vco-timeline .vco-navigation .timenav-background .timenav-line{
+	background-color: @bg-grandesdates !important;
+}
+.vco-timeline .vco-navigation .timenav .content .marker.active .line{
+	background: @bg-grandesdates !important;
+}
+.vco-timeline .vco-navigation .timenav .content .marker.active .dot{
+	background: @bg-grandesdates !important;	
+}
+
+//couleur eveneùent non-protestant
+.vco-timeline .vco-navigation .timenav .content .marker.active .flag .flag-content h3.nonprot, .vco-timeline .vco-navigation .timenav .content .marker.active .flag-small .flag-content h3.nonprot{
+	color: lightgrey !important;
+}
+
+// TEMPLATES
+// ---------------------------------------------
+
+#monolite .templates {
+	display: none;
+}
+
+#monolite .liste {
+	.clearfix();
+	li {
+		.box-sizing();
+		.clearfix();
+		.transition(opacity 0.3s ease-in-out);
+		float: left;				
+		margin-top: 40px;	
+		margin-left: 50px;
+		opacity: 0.5;
+		&:hover {
+			opacity: 1;
+			.pattern {
+				bottom: 2px;
+				opacity: 1;
+			}
+		}			
+		.block {
+			position: relative;			
+			background: #4d4d4d;
+			background-image: url('../img/placeimgholder.png');
+			background-position: center;
+			background-repeat: no-repeat;
+			&:before {
+				display: block;
+				position: absolute;
+				z-index: 10;
+				top: -10px;
+				left: -14px;
+				content: " ";				
+			}	
+			.img {
+				.background-ext();
+				background-repeat: no-repeat;
+				background-position: center;			
+			}
+			div {
+				position: absolute;
+				z-index: 6;	
+				height: 100%;
+				width: 100%;
+				top: 0;
+				overflow: hidden;				
+			}					
+		}	
+	}
+}
+
+#monolite .notice-readmore {
+	.font-size(14);
+	.transition(opacity 0.3s ease-in-out);
+	display: inline-block;
+	opacity: 0.8;
+	color: white;
+	background: red;
+	text-decoration: none;
+	font-style: italic;	
+	margin-top: 20px;
+	padding: 10px 20px;	
+	&:hover {
+		opacity: 1;
+	}
+}
+
+#monolite .histoire {
+	.liste {
+		li{
+			margin-left: 54px;
+		}
+		li:nth-child(-n+3) {			
+			margin-top: 0;
+		}
+		li:nth-child(3n+1) {			
+			margin-left: 0;
+		}
+	}
+}
+
+#monolite .personnalites {
+	.liste {
+		li{
+			margin-left: 53px;
+		}
+		li:nth-child(-n+4) {			
+			margin-top: 0;
+		}
+		li:nth-child(4n+1) {			
+			margin-left: 0;
+		}
+	}
+}
+
+#monolite .themes, #monolite .artspatrimoine {
+	.liste {
+		li:nth-child(-n+2) {			
+			margin-top: 0;
+		}
+		li:nth-child(2n+1) {			
+			margin-left: 0;
+		}
+	}
+}
+
+// Grandes Dates
+#monolite #my-timeline {
+	display: block;
+	position: absolute;
+	width: 100%;	
+	left: 0;
+	top: 100px;
+	.notice-readmore {
+		background: @bg-grandesdates;
+	}
+	.nav-next, .nav-previous{
+		display: none !important;
+	}
+}
+
+// Histoire
+#monolite .histoire{
+	.block {
+		height: 175px;
+		width: 284px;
+		&:before {
+			height: 200px;	
+			width: 308px;			
+			background: url("../img/cadre-histoire.png");
+		}
+		.pattern {
+			background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAJ0lEQVQIW2NkQAP/ZzL8Z0QWAwukMzDCBWECIEVgQWQBsCC6AEgQAO2EDp16SerUAAAAAElFTkSuQmCC) repeat;
+			span {
+				.colorpattern(@bg-histoire);
+			}
+		}
+	}
+	.pagination{
+		li:hover, li.active {
+			background: @bg-histoire;
+		}
+	}
+}
+
+// Personnalites
+#monolite .personnalites{
+	.block {	
+		height: 290px;
+		width: 200px;
+		&:before {
+			height: 306px;
+			width: 220px;
+			background: url("../img/cadre-personnalites.png") 4px 3px no-repeat;
+		}
+		.pattern {
+			background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAMzGYz/MyKLgQTSGc4ywgVhAiBFYEFkAbAgugBIEACW1w3Rlyhe1gAAAABJRU5ErkJggg==) repeat;
+			span {
+				.colorpattern(@bg-personnalites);
+				max-width: 180px;
+			}
+		}
+	}
+	.pagination{
+		li:hover, li.active {
+			background: @bg-personnalites;
+		}
+	}
+}
+
+// Themes
+#monolite .themes, #monolite .artspatrimoine {
+	.clearfix();
+	margin-top: 40px;
+	.liste {
+		float: right;
+		width: 620px;
+		margin-top: 6px;
+		.block {
+			width: 284px;
+			height: 175px;
+			&:before {
+				height: 200px;
+				width: 308px;
+				background: url("../img/cadre-histoire.png");
+			}
+			.pattern {
+				background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAPGM8/8Z0QWAwmcTTdhhAvCBECKwILIAmBBdAGQIACJ+xKdyHeBBgAAAABJRU5ErkJggg==) repeat;
+				span {
+					.colorpattern(@bg-themes);
+				}
+			}
+		}
+	}
+	.pagination {
+		width: 620px;
+		float: right;
+		li:hover, li.active {
+			background: @bg-themes;
+		}
+	}
+}
+
+//Art patrimoine
+#monolite .artspatrimoine {
+	.liste .block .pattern {
+		background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAPGaTP/MyKLgQTOzkpnhAvCBECKwILIAmBBdAGQIABhJBI3aiFvGQAAAABJRU5ErkJggg==) repeat !important;
+		span {
+			.colorpattern(@bg-artspatrimoine) !important;
+		}
+	}
+	.pagination {		
+		li{			
+			&:hover, &.active {
+				background: @bg-artspatrimoine !important;
+			}
+		}	
+	}
+}
+
+// PAGINATION
+// ---------------------------------------------
+
+#monolite .pagination{
+	position: relative;
+	text-align: center;
+	clear: both;
+	height: 40px;	
+	line-height: 20px;
+	margin: 40px 0 0 0;
+	li {
+		.border-radius(5);
+		display: inline-block;
+		margin: 0 5px;
+		cursor: pointer;
+		width: 10px;
+		height: 10px;
+		background: @pg-base;
+		&:hover, &.active {
+			#gradient > .linear(@pg-start, @pg-end);
+		}
+	}
+	i[class*="fa-angle"] {
+		position: relative;
+		top: 4px;
+	}
+	.fa-angle-left { 
+		margin-right: 20px;
+	}
+	.fa-angle-right {
+		margin-left: 20px;
+	}
+}
+
+// Adaptation selon langue - cas particuliers
+// ---------------------------------------------
+#monolite .lang-de{
+	.legend span{
+		min-width:120px;
+	}
+	.personnalites{
+		select{
+			width:60px;
+		}
+	}
+}
+
+#monolite .lang-en{
+	.legend span{
+		min-width:120px;
+	}
+}
+
+#monolite .lang-fr{
+	.legend span:after{
+		content: 'ème';
+		font-size:9px;
+		position:relative;
+		top:-5px;
+	}	
+}

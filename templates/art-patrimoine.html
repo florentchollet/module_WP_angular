@@ -1,0 +1,29 @@
+<div class="artspatrimoine template">
+
+	<!-- Filters -->
+	<sidemenu></sidemenu>
+	
+	<!-- Notices loop -->
+	<ul class="liste">
+		<li ng-repeat="notice in $parent.filtered = (notices | regex:'taxonomy_art-patrimoine':letter) | limitTo:pageIndex | limitTo:pageLimit track by $index">
+		
+			<a href="{{notice.url}}" title="{{notice.title}}" >
+
+				<div class="block">
+					<div class="img" style="background-image: url('{{notice.images.paysage}}')"></div>
+					<div>
+						<p class="pattern"><span ng-bind-html="notice.title"></span></p>
+					</div>
+				</div>
+
+			</a>
+
+		</li>
+	</ul>
+
+	<!-- Pagination -->
+    <ul class="pagination">
+        <li ng-repeat="bullet in bullets track by $index" ng-click="pager(($index + 1) * limit, bullet); pagClicked($index);" ng-class="{'active': $index == pagSelected}" ></li>
+    </ul>  
+
+</div>

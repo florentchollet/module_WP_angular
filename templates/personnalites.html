@@ -1,0 +1,52 @@
+<div class="personnalites template">
+
+	<div class="filters">
+
+		<!-- Filter : search alphabet -->
+		<ul class="filter-alphabet"> 
+			<li>{{filtername}}</li>
+			<li ng-repeat="letter in alphabet" ng-click="getLetter(letter)">{{letter}}</li>
+			<li class="resetLetter" ng-click="reset()"><i class="fa fa-undo"></i></li>
+		</ul>
+
+		<!-- Filter : Centuries selector -->
+		<div class="filter-centuries">
+			<span>{{filtersiecle}}</span>
+			<select ng-model="century" ng-options="century.title for century in centuriesList">
+				<option value="">{{tradall}}</option>
+			</select>
+			<!-- <i class="fa fa-caret-down"></i> -->
+		</div>
+
+		<!-- Filter : search title -->
+		<div class="filter-search">
+			<input placeholder="{{namesearch}}" ng-model="search.title" />
+		</div>
+
+	</div>
+
+	<!-- Notices loop -->
+	<ul class="liste">
+		<li ng-repeat="notice in $parent.filtered = (notices | filter:search | regex:'title_order':letter | regex:'taxonomy_siecles':century.slug) | limitTo:pageIndex | limitTo:pageLimit track by $index">
+			
+			<a href="{{notice.url}}" title="{{notice.title}}" >
+
+				<div class="block">
+					<div class="img" style="background-image: url('{{notice.images.portrait}}')"></div>
+					<div>
+						<p class="pattern"><span ng-bind-html="notice.title"></span></p>
+					</div>
+				</div>
+
+			</a>
+
+		</li>
+	</ul>
+
+	 <!-- Pagination -->
+    <ul class="pagination">
+        <li ng-repeat="bullet in bullets track by $index" ng-click="pager(($index + 1) * limit, bullet); pagClicked($index);" ng-class="{'active': $index == pagSelected}" ></li>
+    </ul>   
+
+
+</div>

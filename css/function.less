@@ -1,0 +1,202 @@
+// ----------------------------------------
+// UTILITIES
+// ----------------------------------------
+
+// Responsive width
+.res-width(@target, @context) {
+	@width: (@target / @context) * 100;
+	width: e("@{width}%");
+}
+
+// Responsive margin
+.res-margin(@top, @right, @bottom, @left, @context) {
+	@right-n: (@right / @context) * 100;
+	@left-n: (@left / @context) * 100;
+	margin: e("@{top}px") e("@{right-n}%") e("@{bottom}px") e("@{left-n}%");
+}
+
+// Responsive padding
+.res-padding(@top, @right, @bottom, @left, @context) {
+	@right-n: (@right / @context) * 100;
+	@left-n: (@left / @context) * 100;
+	padding: e("@{top}px") e("@{right-n}%") e("@{bottom}px") e("@{left-n}%");
+}
+
+// typo 
+.font-size(@size) {
+	@remsize: @size / 16;
+	font-size: e("@{size}px");
+	font-size: e("@{remsize}rem"); 
+}
+
+// Clearfix
+.clearfix() {
+	zoom: 1;
+	&:before { content: ''; display: block; }
+	&:after { content: ''; display: table; clear: both; }
+}
+
+// Hyphen
+.hyphen() {
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	-o-hyphens: auto;
+	hyphens: auto;
+}
+
+.appearance(@type: 'none') {
+	-webkit-appearance: @type;
+	-moz-appearance:    @type;
+	appearance:         @type;
+}
+
+// Box Sizing
+.box-sizing() { 
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;   
+	box-sizing: border-box;    
+}
+
+
+// ----------------------------------------
+// BORDERS
+// ----------------------------------------
+
+// All corners radius
+.border-radius (@radius: 10) {
+	-webkit-border-radius: e("@{radius}px");
+	-moz-border-radius: e("@{radius}px");
+	border-radius: e("@{radius}px");
+}
+
+// Top corners radius
+.border-radius-top (@radius: 10) {
+	-webkit-border-top-left-radius: e("@{radius}px");
+	-webkit-border-top-right-radius: e("@{radius}px");
+	-moz-border-radius-topleft: e("@{radius}px");
+	-moz-border-radius-topright: e("@{radius}px");
+	border-top-left-radius: e("@{radius}px");
+	border-top-right-radius: e("@{radius}px");
+}
+
+
+// ----------------------------------------
+// SHADOWS
+// ----------------------------------------
+
+// Box shadow
+.box-shadow (@offx: 0, @offy: 0, @blur: 5px, @color: #000) {
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+
+// Text shadow
+.text-shadow (@x: 0, @y: 1px, @blur: 0, @color: #fff) {
+	text-shadow: @arguments;
+}
+
+
+// ----------------------------------------
+// BACKGROUNDS
+// ----------------------------------------
+
+// Extensible Background
+.background-ext() {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+// Gradients
+#gradient {
+	.linear (@startColor: #555, @endColor: #333, @direction: top, @type: 0) {
+		background-color: transparent;
+		background: @startColor;
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@startColor), color-stop(100%,@endColor));
+		background: -webkit-linear-gradient(@direction, @startColor 0%, @endColor 100%);
+		background: -moz-linear-gradient(@direction, @startColor 0%, @endColor 100%);
+		background: -ms-linear-gradient(@direction, @startColor 0%,@endColor 100%);
+		background: -o-linear-gradient(@direction, @startColor 0%,@endColor 100%);
+		background: linear-gradient(@direction, @startColor 0%,@endColor 100%);
+		background-repeat: no-repeat;
+		filter: ~"progid:DXImageTransform.Microsoft.gradient( startColorstr='@{startColor}', endColorstr='@{endColor}', GradientType='@{type}')";
+	}
+	.radial(@innerColor: #555, @outerColor: #333)  {
+		background-color: @outerColor;
+		background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(@innerColor), to(@outerColor));
+		background-image: -webkit-radial-gradient(circle, @innerColor, @outerColor);
+		background-image: -moz-radial-gradient(circle, @innerColor, @outerColor);
+		background-image: -ms-radial-gradient(circle, @innerColor, @outerColor);
+		background-image: -o-radial-gradient(circle, @innerColor, @outerColor);
+		background-repeat: no-repeat;
+	}
+}
+
+
+// ----------------------------------------
+// ANIMATIONS
+// ----------------------------------------
+
+// Transitions
+.transition(...) {
+	-webkit-transition: @arguments;
+	-moz-transition: @arguments;
+	-ms-transition: @arguments;
+	-o-transition: @arguments;
+	transition: @arguments;
+}
+
+// Transformations
+.rotate(@deg) {
+	-webkit-transform: rotate(e("@{deg}deg"));
+	-moz-transform: rotate(e("@{deg}deg"));
+	-ms-transform: rotate(e("@{deg}deg"));
+	-o-transform: rotate(e("@{deg}deg"));
+	transform: rotate(e("@{deg}deg"));
+}
+.scale(@x: 0, @y: 0) {
+	-webkit-transform: scale(@x, @y);
+	-moz-transform: scale(@x, @y);
+	-ms-transform: scale(@x, @y);
+	-o-transform: scale(@x, @y);
+	transform: scale(@x, @y);
+}
+.translate(@x: 0, @y: 0) {
+	-webkit-transform: translate(@x, @y);
+	-moz-transform: translate(@x, @y);
+	-ms-transform: translate(@x, @y);
+	-o-transform: translate(@x, @y);
+	transform: translate(@x, @y);
+}
+.skew(@x: 0, @y: 0) {
+	-webkit-transform: skew(@x, @y);
+	-moz-transform: skew(@x, @y);
+	-ms-transform: skew(@x, @y);
+	-o-transform: skew(@x, @y);
+	transform: skew(@x, @y);
+}
+.translate3d(@x: 0, @y: 0, @z: 0) {
+	-webkit-transform: translate(@x, @y, @z);
+	-moz-transform: translate(@x, @y, @z);
+	-ms-transform: translate(@x, @y, @z);
+	-o-transform: translate(@x, @y, @z);
+	transform: translate(@x, @y, @z);
+}
+
+
+// ----------------------------------------
+// OTHERS
+// ----------------------------------------
+
+// Triangle
+.triangle (@clr) {
+	border-style: solid;
+	border-color: transparent transparent transparent @clr; /* Top Right Down Left*/
+	border-width: 2.45em 0 2.45em 2.45em; /* hH lD hB lG */
+	line-height: 0%;
+	height:0px;
+	width:0px;
+}
